@@ -1,17 +1,17 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: spring-petclinic-gitops
-  title: An app deployed by OpenShift GitOps
+  name: orchestrator-backstage
+  title: Orchestartor backstage deployed by argocd
   description: |
-    This is a simple spring app deployed by OCP GitOps
+    Orchestartor backstage deployed by argocd
   annotations:
-    backstage.io/kubernetes-id: 'spring-petclinic'
-    backstage.io/kubernetes-namespace: myapps
-    backstage.io/kubernetes-label-selector: 'app=spring-petclinic'
-    argocd/app-selector: 'app=spring-petclinic'
+    backstage.io/kubernetes-id: 'orchestrator-backstage'
+    backstage.io/kubernetes-namespace: 'default'
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/name=backstage'
+    argocd/app-selector: 'app=orchestrator'
 spec:
   type: service
-  system: myapp
-  owner: frontend-team
+  system: orchestrator-backend
+  owner: orchestrator-team
   lifecycle: production
